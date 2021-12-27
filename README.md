@@ -69,7 +69,38 @@ finalizada la clonacion corra el siguiente comando para instalar las dependencia
 composer install
 ```
 
-finalizada la instalacion de dependencias. Corra el servidor con el siguiente comando
+Editar el archivo .env con los datos de acceso de su base de datos
+
+```
+DB_DATABASE=XXXXXX
+DB_USERNAME=XXXXXX
+DB_PASSWORD=XXXXXX
+```
+
+En una consola correr el siguiente comando 
+
+```
+php artisan migrate
+```
+
+El sistema mostrara las migraciones creadas en la base de datos
+
+```
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (37.46ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (38.82ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (45.15ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated:  2019_12_14_000001_create_personal_access_tokens_table (55.29ms)
+Migrating: 2021_12_27_154744_create_farmacia_table
+Migrated:  2021_12_27_154744_create_farmacia_table (21.19ms)
+```
+
+
+finalizadas la instalacion de dependencias y migraciones. Corra el servidor con el siguiente comando
 
 ```
 php artisan serve
