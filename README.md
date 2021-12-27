@@ -6,11 +6,11 @@ Farmacia CRUD
 
 ## Getting Started
 
-Estas instrucciones le proporcionarán una copia del proyecto en funcionamiento en su máquina local con fines de desarrollo y prueba
+Servicio Desarrollado en Laravel 8
 
-### Prerequisites
+### Pre-requisitos
 
-Verifique que su equipo tenga instalado composer y php. Abra una consola cmd  o terminar powershell:
+Verifique que su equipo tenga instalado las siguientes versiones. Abra una consola cmd  o terminal powershell:
 
 ```
 php -v // PHP 7.4.27
@@ -19,7 +19,7 @@ git --version // version 2.34.1.windows.1
 
 ```
 
-### Installing
+### Instalacion
 
 Abra consola y por terminal seleccionar la ruta donde se va a clonar el proyecto. 
 
@@ -69,7 +69,7 @@ finalizada la clonacion corra el siguiente comando para instalar las dependencia
 composer install
 ```
 
-Editar el archivo .env con los datos de acceso de su base de datos
+Editar el archivo .env en el proyecto con los datos de acceso de su base de datos local
 
 ```
 DB_DATABASE=XXXXXX
@@ -113,25 +113,30 @@ PHP 7.4.27 Development Server (http://127.0.0.1:8000) started
 ```
 
 
-## Running the tests
+## Corriendo tests
 
-Explain how to run the automated tests for this system
+El servicio tiene 3 test unitarios realizados. FarmaciaTest realiza las pruebas sobre la clase Farmacia ubicada en app\Services
 
-### Break down into end to end tests
+### Tests\Feature\app\Services\FarmaciaTest
+#### dominio creacion exitosa
+#### dominio creacion no exitosa
+#### calculo distancia
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
+Ejecute el siguiente comando en consola y sobre la ruta del proyecto creado
 
 ```
-Give an example
+php artisan test
 ```
+
+Si todo sale bien mostrara 
+
+```
+  PASS  Tests\Feature\app\Services\FarmaciaTest
+  ✓ dominio creacion exitosa
+  ✓ dominio creacion no exitosa
+  ✓ calculo distancia
+```
+
 
 ## Deployment
 

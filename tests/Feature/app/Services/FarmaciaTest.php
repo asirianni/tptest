@@ -38,8 +38,18 @@ class FarmaciaTest extends TestCase
 
     public function test_calculo_distancia()
     {
-        $response = $this->get('/api/farmacia');
+        //coordenadas punto 1 
+        $p1["latitud"]=-1;
+        $p1["longitud"]=7;
 
-        $response->assertStatus(200);
+        //cordenadas punto 2
+        $p2["latitud"]=3;
+        $p2["longitud"]=4;
+
+        //calculo distancia
+        $distancia=Farmacia::calculo_distancia($p1,$p2);
+        
+        //el calculo de la distancia entre los 2 puntos dados es de 5
+        $this->assertEquals(5,$distancia);
     }
 }

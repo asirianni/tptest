@@ -67,9 +67,9 @@ class Farmacia{
     //metodo estatico para calculo de distancia entre 2 puntos, los valores $d1 y $d2 son array con latitud y longitud 
     public static function calculo_distancia($d1,$d2){
         //calculamos las diferecias de longitud exponencial
-        $diferecia1=self::calculo_diferecia_exponencial($d1["longitud"]-$d2["longitud"]);
+        $diferecia1=self::calculo_diferecia_exponencial($d1["longitud"], $d2["longitud"]);
         //calculamos las diferecias de latitud exponencial
-        $diferecia2=self::calculo_diferecia_exponencial($d1["latitud"]-$d2["latitud"]);
+        $diferecia2=self::calculo_diferecia_exponencial($d1["latitud"], $d2["latitud"]);
         //sumamos las diferencias
         $total=$diferecia1+$diferecia2;
         //al total hacemos raiz cuadrada para obtener la distancia entre los pares de puntos
@@ -79,9 +79,11 @@ class Farmacia{
     }
 
     public function calculo_diferecia_exponencial($d1,$d2){
-        $diferecia=($d1-$d2);
-        $exponente=pow(2, $diferecia);
-        return $exponente;
+        $diferecia=($d2)-($d1);
+
+        $exponenteT=$diferecia*$diferecia;
+
+        return $exponenteT;
     }
 
     /**
