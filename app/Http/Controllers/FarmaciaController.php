@@ -35,35 +35,45 @@ class FarmaciaController extends Controller
             //obtenemos las farmacias registradas
             $farmacias = Farmacia::all();
 
-            foreach ($farmacias as $f){
-                //obtenemos las cordenadas para poder calcular el punto 2 
-                $p2["latitud"]=$f->latitud;
-                $p2["longitud"]=$f->longitud;
-
-                //calculo distancia
-                $distancia=\App\Services\Farmacia::calculo_distancia($p1,$p2);
+            if(count($farmacias)>0){
+                foreach ($farmacias as $f){
+                    //obtenemos las cordenadas para poder calcular el punto 2 
+                    $p2["latitud"]=$f->latitud;
+                    $p2["longitud"]=$f->longitud;
+    
+                    //calculo distancia
+                    $distancia=\App\Services\Farmacia::calculo_distancia($p1,$p2);
+                    
+                    $farmacia=array(
+                        "distancia"=>intval($distancia),
+                        "farmacia"=>$f
+                    );
+                    
+                    //cargamo la distacia
+                    array_push($listado_farmacias,$farmacia);
+    
+                }
+    
+                //calculamos la minima distancia
+                $minima_distancia=\App\Services\Farmacia::min_by_key($listado_farmacias,"distancia");
                 
-                $farmacia=array(
-                    "distancia"=>intval($distancia),
-                    "farmacia"=>$f
-                );
-                
-                //cargamo la distacia
-                array_push($listado_farmacias,$farmacia);
+                // obtenemos la key del listado que tiene la menor distancia
+                $key = array_search($minima_distancia, array_column($listado_farmacias, 'distancia'));
+                           
+                //mostramos la farmacia mas proxima en metros y los datos de la farmacia
+                $data["exito"]="Farmacia registrada mas proxima a ".$listado_farmacias[$key]["distancia"]." metros";
+                $data["farmacia"]=$listado_farmacias[$key]["farmacia"];
+    
+                $status=200;
 
+
+            }else{
+                $data["exito"]="No hay farmacias cargadas";
+   
+                $status=200;
             }
 
-            //calculamos la minima distancia
-            $minima_distancia=\App\Services\Farmacia::min_by_key($listado_farmacias,"distancia");
             
-            // obtenemos la key del listado que tiene la menor distancia
-            $key = array_search($minima_distancia, array_column($listado_farmacias, 'distancia'));
-                       
-            //mostramos la farmacia mas proxima en metros y los datos de la farmacia
-            $data["exito"]="Farmacia registrada mas proxima a ".$listado_farmacias[$key]["distancia"]." metros";
-            $data["farmacia"]=$listado_farmacias[$key]["farmacia"];
-
-            $status=200;
         }else{
             $data["exito"]="error de campo";
             $data["latitud"]=$validacion_lat;
