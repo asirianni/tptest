@@ -138,7 +138,7 @@ php artisan test
 
 ## API
 
-## PERSISTIR NUEVA FARMACIA
+## Persistir nueva farmacia
 
 * POST / http://localhost:8000/api/farmacia
 
@@ -162,7 +162,7 @@ Resp
     }
 ```
 
-## CONSULTAR FARMACIA REGISTRADA
+## Consultar Farmacia por ID
 
 * GET / http://localhost:8000/api/farmacia/1
 
@@ -185,7 +185,7 @@ Resp
     }
 ```
 
-## CONSULTAR FARMACIA PROXIMA A COORDENADAS INGRESADAS
+## Consultar Farmacia proxima por coordenas ingresadas por get
 
 * GET / http://localhost:8000/api/farmacia/?latitud=70&longitud=98
 
