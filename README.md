@@ -138,7 +138,7 @@ php artisan test
 
 ## API
 
-## Persistir nueva farmacia
+## Persistir nueva Farmacia
 
 * POST / http://localhost:8000/api/farmacia
 
