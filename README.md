@@ -128,8 +128,6 @@ Ejecute el siguiente comando en consola y sobre la ruta del proyecto creado
 php artisan test
 ```
 
-Si todo sale bien mostrara 
-
 ```
   PASS  Tests\Feature\app\Services\FarmaciaTest
   ✓ dominio creacion exitosa
@@ -138,37 +136,60 @@ Si todo sale bien mostrara
 ```
 
 
-## Deployment
+## API
 
-Add additional notes about how to deploy this on a live system
+## PERSISTIR NUEVA FARMACIA
 
-## Built With
+* POST / http://localhost:8000/api/farmacia
+Body
+```
+    {
+        "nombre":"Farmacia 1",
+        "direccion":"Mitre 750",
+        "latitud":33.546,
+        "longitud":25.698
+    }
+```
+Resp
+```
+    {
+        "data": {
+            "exito": "Farmacia registrada",
+            "id": 1
+        },
+        "status": 200
+    }
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+## CONSULTAR FARMACIA REGISTRADA
 
-## Contributing
+* GET / http://localhost:8000/api/farmacia/1
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Resp
+```
+    {
+        "data": {
+            "exito": "Farmacia registrada",
+            "farmacia": {
+                "id": 1,
+                "nombre": "Farmacia 1",
+                "direccion": "Mitre 750",
+                "latitud": "33.54600000",
+                "longitud": "25.69800000",
+                "created_at": "2021-12-28T12:47:50.000000Z",
+                "updated_at": "2021-12-28T12:47:50.000000Z"
+            }
+        },
+        "status": 200
+    }
+```
 
-## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Adrian Sirianni** - *asprofactory.net* - [PurpleBooth](https://asprofactory.net)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
