@@ -13,9 +13,66 @@ class FarmaciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $req=$request->all();
+        $data=array();
+        $status=400;
+        
+        //validamos los campos ingresados por get
+        $validacion_lat=\App\Services\Farmacia::campo_numerico($req["latitud"],"Campo Lat numerico");
+        $validacion_lon=\App\Services\Farmacia::campo_numerico($req["longitud"],"Campo Lon numerico");
+        
+        // si pasa la validacion
+        if($validacion_lat["validacion"] && $validacion_lon["validacion"]){
+
+
+            $listado_farmacias=array();
+            //coordenadas punto 1 
+            $p1["latitud"]=$req["latitud"];
+            $p1["longitud"]=$req["longitud"];
+
+            //obtenemos las farmacias registradas
+            $farmacias = Farmacia::all();
+
+            foreach ($farmacias as $f){
+                //obtenemos las cordenadas para poder calcular el punto 2 
+                $p2["latitud"]=$f->latitud;
+                $p2["longitud"]=$f->longitud;
+
+                //calculo distancia
+                $distancia=\App\Services\Farmacia::calculo_distancia($p1,$p2);
+                
+                $farmacia=array(
+                    "distancia"=>intval($distancia),
+                    "farmacia"=>$f
+                );
+                
+                //cargamo la distacia
+                array_push($listado_farmacias,$farmacia);
+
+            }
+
+            //calculamos la minima distancia
+            $minima_distancia=\App\Services\Farmacia::min_by_key($listado_farmacias,"distancia");
+            
+            // obtenemos la key del listado que tiene la menor distancia
+            $key = array_search($minima_distancia, array_column($listado_farmacias, 'distancia'));
+                       
+            //mostramos la farmacia mas proxima en metros y los datos de la farmacia
+            $data["exito"]="Farmacia registrada mas proxima a ".$listado_farmacias[$key]["distancia"]." metros";
+            $data["farmacia"]=$listado_farmacias[$key]["farmacia"];
+
+            $status=200;
+        }else{
+            $data["exito"]="error de campo";
+            $data["latitud"]=$validacion_lat;
+            $data["longitud"]=$validacion_lon;
+            $status=500;
+        }
+        
+        $data= \Response::json(['data' => $data, 'status' => $status], $status);
+        return $data;
     }
 
     /**

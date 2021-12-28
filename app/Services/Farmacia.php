@@ -52,16 +52,32 @@ class Farmacia{
 
     }
 
-    public function campo_numerico($campo,$mensaje){
+    public static function campo_numerico($campo,$mensaje){
         $validaciones["validacion"]=is_numeric($campo);
         $validaciones["mensaje"]=$mensaje;
         return $validaciones;
     }
 
-    public function campo_texto($campo,$mensaje){
+    public static function campo_texto($campo,$mensaje){
         $validaciones["validacion"]=is_string($campo);
         $validaciones["mensaje"]=$mensaje;
         return $validaciones;
+    }
+
+    //busqueda por valor minimo en array
+    public static function min_by_key($arr, $key){
+        $min = array();
+        foreach ($arr as $val) {
+            if (!isset($val[$key]) and is_array($val)) {
+                $min2 = min_by_key($val, $key);
+                $min[$min2] = 1;
+            } elseif (!isset($val[$key]) and !is_array($val)) {
+                return false;
+            } elseif (isset($val[$key])) {
+                $min[$val[$key]] = 1;
+            }
+        }
+        return min( array_keys($min) );
     }
 
     //metodo estatico para calculo de distancia entre 2 puntos, los valores $d1 y $d2 son array con latitud y longitud 

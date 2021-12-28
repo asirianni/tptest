@@ -141,6 +141,7 @@ php artisan test
 ## PERSISTIR NUEVA FARMACIA
 
 * POST / http://localhost:8000/api/farmacia
+
 Body
 ```
     {
@@ -184,11 +185,34 @@ Resp
     }
 ```
 
+## CONSULTAR FARMACIA PROXIMA A COORDENADAS INGRESADAS
+
+* GET / http://localhost:8000/api/farmacia/?latitud=70&longitud=98
+
+Resp
+```
+    {
+        "data": {
+            "exito": "Farmacia registrada mas proxima a 80 metros",
+            "farmacia": {
+                "id": 1,
+                "nombre": "Farmacia 1",
+                "direccion": "Mitre 750",
+                "latitud": "33.54600000",
+                "longitud": "25.69800000",
+                "created_at": "2021-12-28T12:47:50.000000Z",
+                "updated_at": "2021-12-28T12:47:50.000000Z"
+            }
+        },
+        "status": 200
+    }
+```
+
 
 
 ## Authors
 
-* **Adrian Sirianni** - *asprofactory.net* - [PurpleBooth](https://asprofactory.net)
+* **Adrian Sirianni** - *Analista Tecnico Programador* - [asprofactory.net](https://asprofactory.net)
 
 
 
