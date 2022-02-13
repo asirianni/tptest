@@ -1,4 +1,4 @@
-# TP Verifarma
+# TP FARMACIA
 
 Desarrollador de Software
 Farmacia CRUD
