@@ -21,7 +21,8 @@ class CreateMatchesTable extends Migration
             $table->foreign('player_play_id')->references('id')->on('players');
             $table->unsignedBigInteger('opponent_play_id')->nullable();
             $table->foreign('opponent_play_id')->references('id')->on('players');
-            $table->integer('result');
+            $table->unsignedBigInteger('winer_play_id')->nullable();
+            $table->foreign('winer_play_id')->references('id')->on('players');
             $table->timestamps();
         });
     }
