@@ -104,6 +104,14 @@ Migrated:  2023_07_12_181423_create_matches_table (108.48ms)
 
 ```
 
+En una consola correr el siguiente comando para cargar automaticamente random 8 jugadores hombres y mujeres con distintos valores random 
+
+```
+php artisan db:seed
+```
+
+Si se revisa la tabla players en la base de datos vera los jugadores cargados aleatoriamente
+
 
 finalizadas la instalacion de dependencias, migraciones y seeders. Corra el servidor con el siguiente comando
 
