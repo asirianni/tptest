@@ -1,7 +1,5 @@
-# TP FARMACIA
-
-Desarrollador de Software
-Farmacia CRUD
+# TP GEOPAGOS
+API REST - Simulador de torneos
 
 
 ## Getting Started
@@ -30,13 +28,13 @@ cd documents
 crear carpeta en la ruta seleccionada con el siguiente comando
 
 ```
-mkdir tpverifarma
+mkdir tptest
 ```
 
 ingresar a la carpeta
 
 ```
-cd tpverifarma
+cd tptest
 ```
 
 Iniciar repositorio en la carpeta
@@ -48,7 +46,7 @@ git init .
 agregar la ruta de clonacion con el siguiente comando
 
 ```
-git remote add origin https://github.com/asirianni/tpverifarma.git
+git remote add origin https://github.com/asirianni/tptest.git
 ```
 
 clonar proyecto
@@ -69,6 +67,12 @@ finalizada la clonacion corra el siguiente comando para instalar las dependencia
 composer install
 ```
 
+finalizando la instalacion genere la llave key ejecutando el siguiente comando
+
+```
+php artisan key:generate
+```
+
 Editar el archivo .env en el proyecto con los datos de acceso de su base de datos local
 
 ```
@@ -87,20 +91,21 @@ El sistema mostrara las migraciones creadas en la base de datos
 
 ```
 Migration table created successfully.
-Migrating: 2014_10_12_000000_create_users_table
-Migrated:  2014_10_12_000000_create_users_table (37.46ms)
-Migrating: 2014_10_12_100000_create_password_resets_table
-Migrated:  2014_10_12_100000_create_password_resets_table (38.82ms)
-Migrating: 2019_08_19_000000_create_failed_jobs_table
-Migrated:  2019_08_19_000000_create_failed_jobs_table (45.15ms)
 Migrating: 2019_12_14_000001_create_personal_access_tokens_table
-Migrated:  2019_12_14_000001_create_personal_access_tokens_table (55.29ms)
-Migrating: 2021_12_27_154744_create_farmacia_table
-Migrated:  2021_12_27_154744_create_farmacia_table (21.19ms)
+Migrated:  2019_12_14_000001_create_personal_access_tokens_table (39.77ms)
+Migrating: 2023_07_12_181257_create_player_types_table
+Migrated:  2023_07_12_181257_create_player_types_table (18.63ms)
+Migrating: 2023_07_12_181310_create_tournaments_table
+Migrated:  2023_07_12_181310_create_tournaments_table (48.08ms)
+Migrating: 2023_07_12_181332_create_players_table
+Migrated:  2023_07_12_181332_create_players_table (46.88ms)
+Migrating: 2023_07_12_181423_create_matches_table
+Migrated:  2023_07_12_181423_create_matches_table (108.48ms)
+
 ```
 
 
-finalizadas la instalacion de dependencias y migraciones. Corra el servidor con el siguiente comando
+finalizadas la instalacion de dependencias, migraciones y seeders. Corra el servidor con el siguiente comando
 
 ```
 php artisan serve
