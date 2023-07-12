@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('farmacia', App\Http\Controllers\FarmaciaController::class);
+Route::apiResource('tournament', App\Http\Controllers\TournamentController::class);
