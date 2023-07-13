@@ -24,7 +24,7 @@ Se dispone de<br><br>
 [PlayerResource](https://github.com/asirianni/tptest/blob/main/app/Http/Resources/PlayerResource.php)<br>
 [TournamentResource](https://github.com/asirianni/tptest/blob/main/app/Http/Resources/TournamentResource.php)<br><br>
 1 TestUnitarios (que validan 2 funcionalidades especificas)<br>
-[TournamentTest](https://www.ejemplo.com)<br><br>
+[TournamentTest](https://github.com/asirianni/tptest/blob/main/tests/Feature/app/Services/TournamentTest.php)<br><br>
 
 
 
