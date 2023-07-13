@@ -9,20 +9,20 @@ Se provee de un servicio para generar Torneos a partir de tipo y cantidad de par
 Mediante el Modelo MVC de Laravel y practicas SOLID<br>
 Se dispone de<br><br>
 1 Request (para validar los datos de la peticion Postman)<br>
-[TournamentRequest](https://www.ejemplo.com)<br><br>
+[TournamentRequest](https://github.com/asirianni/tptest/blob/main/app/Http/Requests/TournamentRequest.php)<br><br>
 1 Controlador (para accesar al servicio)<br>
-[TournamentController](https://www.ejemplo.com)<br><br>
+[TournamentController](https://github.com/asirianni/tptest/blob/main/app/Http/Controllers/TournamentController.php)<br><br>
 2 Servicios (generan la logica de negocio)<br>
-[MatchService](https://www.ejemplo.com)<br>
-[TournamentService](https://www.ejemplo.com)<br><br>
+[MatchService](https://github.com/asirianni/tptest/blob/main/app/Services/MatchService.php)<br>
+[TournamentService](https://github.com/asirianni/tptest/blob/main/app/Services/TournamentService.php)<br><br>
 3 Modelos (que persisten la informacion generada)<br>
-[Match](https://www.ejemplo.com)<br>
-[Player](https://www.ejemplo.com)<br>
-[Tournament](https://www.ejemplo.com)<br><br>
+[Match](https://github.com/asirianni/tptest/blob/main/app/Models/Match.php)<br>
+[Player](https://github.com/asirianni/tptest/blob/main/app/Models/Player.php)<br>
+[Tournament](https://github.com/asirianni/tptest/blob/main/app/Models/Tournament.php)<br><br>
 3 Resources (que muestran los datos como devolucion)<br>
-[MatchResource](https://www.ejemplo.com)<br>
-[PlayerResource](https://www.ejemplo.com)<br>
-[TournamentResource](https://www.ejemplo.com)<br><br>
+[MatchResource](https://github.com/asirianni/tptest/blob/main/app/Http/Resources/MatchResource.php)<br>
+[PlayerResource](https://github.com/asirianni/tptest/blob/main/app/Http/Resources/PlayerResource.php)<br>
+[TournamentResource](https://github.com/asirianni/tptest/blob/main/app/Http/Resources/TournamentResource.php)<br><br>
 2 TestUnitarios (que validan 2 funcionalidades especificas)<br>
 [Haz clic aquí](https://www.ejemplo.com)<br>
 [Haz clic aquí](https://www.ejemplo.com)<br><br>
