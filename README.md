@@ -7,25 +7,25 @@ API REST - Simulador de torneos
 Servicio Desarrollado en Laravel 8<br>
 Se provee de un servicio para generar Torneos a partir de tipo y cantidad de partidos.<br>
 Mediante el Modelo MVC de Laravel y practicas SOLID<br>
-Se dispone de<br>
+Se dispone de<br><br>
 1 Request (para validar los datos de la peticion Postman)<br>
-[TournamentRequest](https://www.ejemplo.com)<br>
+[TournamentRequest](https://www.ejemplo.com)<br><br>
 1 Controlador (para accesar al servicio)<br>
-[TournamentController](https://www.ejemplo.com)<br>
+[TournamentController](https://www.ejemplo.com)<br><br>
 2 Servicios (generan la logica de negocio)<br>
 [MatchService](https://www.ejemplo.com)<br>
-[TournamentService](https://www.ejemplo.com)<br>
+[TournamentService](https://www.ejemplo.com)<br><br>
 3 Modelos (que persisten la informacion generada)<br>
 [Match](https://www.ejemplo.com)<br>
 [Player](https://www.ejemplo.com)<br>
-[Tournament](https://www.ejemplo.com)<br>
+[Tournament](https://www.ejemplo.com)<br><br>
 3 Resources (que muestran los datos como devolucion)<br>
 [MatchResource](https://www.ejemplo.com)<br>
 [PlayerResource](https://www.ejemplo.com)<br>
-[TournamentResource](https://www.ejemplo.com)<br>
+[TournamentResource](https://www.ejemplo.com)<br><br>
 2 TestUnitarios (que validan 2 funcionalidades especificas)<br>
 [Haz clic aquí](https://www.ejemplo.com)<br>
-[Haz clic aquí](https://www.ejemplo.com)<br>
+[Haz clic aquí](https://www.ejemplo.com)<br><br>
 
 
 
