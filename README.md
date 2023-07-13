@@ -5,8 +5,31 @@ API REST - Simulador de torneos
 ## Getting Started
 
 Servicio Desarrollado en Laravel 8
+Se provee de un servicio para generar Torneos a partir de tipo y cantidad de partidos.
+Mediante el Modelo MVC de Laravel y practicas SOLID
+Se dispone de
+1 Request (para validar los datos de la peticion Postman)
+[TournamentRequest](https://www.ejemplo.com)
+1 Controlador (para accesar al servicio)
+[TournamentController](https://www.ejemplo.com)
+2 Servicios (generan la logica de negocio)
+[MatchService](https://www.ejemplo.com)
+[TournamentService](https://www.ejemplo.com)
+3 Modelos (que persisten la informacion generada)
+[Match](https://www.ejemplo.com)
+[Player](https://www.ejemplo.com)
+[Tournament](https://www.ejemplo.com)
+3 Resources (que muestran los datos como devolucion)
+[MatchResource](https://www.ejemplo.com)
+[PlayerResource](https://www.ejemplo.com)
+[TournamentResource](https://www.ejemplo.com)
+2 TestUnitarios (que validan 2 funcionalidades especificas)
+[Haz clic aquí](https://www.ejemplo.com)
+[Haz clic aquí](https://www.ejemplo.com)
 
-### Pre-requisitos
+
+
+### Pre-requisitos para ejecutar en local el proyecto
 
 Verifique que su equipo tenga instalado las siguientes versiones. Abra una consola cmd  o terminal powershell:
 
@@ -151,76 +174,84 @@ php artisan test
 
 ## API
 
-## Persistir nueva Farmacia
+## Persistir nuevo Torneo
 
-* POST / http://localhost:8000/api/farmacia
+* POST / http://localhost:8000/api/tournament
 
 Body
 ```
     {
-        "nombre":"Farmacia 1",
-        "direccion":"Mitre 750",
-        "latitud":33.546,
-        "longitud":25.698
+        "tipo": 1,
+        "partidos":3
     }
 ```
 Resp
 ```
     {
-        "data": {
-            "exito": "Farmacia registrada",
-            "id": 1
-        },
-        "status": 200
-    }
-```
-
-## Consultar Farmacia por ID
-
-* GET / http://localhost:8000/api/farmacia/1
-
-Resp
-```
-    {
-        "data": {
-            "exito": "Farmacia registrada",
-            "farmacia": {
-                "id": 1,
-                "nombre": "Farmacia 1",
-                "direccion": "Mitre 750",
-                "latitud": "33.54600000",
-                "longitud": "25.69800000",
-                "created_at": "2021-12-28T12:47:50.000000Z",
-                "updated_at": "2021-12-28T12:47:50.000000Z"
+    "data": {
+        "torneo num": 36,
+        "tipo": "femenino",
+        "cant partidos": 3,
+        "cant jugadores": 3,
+        "matches": [
+            {
+                "id": 40,
+                "playerPlay": {
+                    "id": 1,
+                    "name": "Easter Blanda",
+                    "ability": 2,
+                    "force": 2,
+                    "speed": 10
+                },
+                "opponentPlay": {
+                    "id": 5,
+                    "name": "Sedrick Koepp",
+                    "ability": 9,
+                    "force": 10,
+                    "speed": 1
+                },
+                "winnerPlay": "Sedrick Koepp"
+            },
+            {
+                "id": 41,
+                "playerPlay": {
+                    "id": 5,
+                    "name": "Sedrick Koepp",
+                    "ability": 9,
+                    "force": 10,
+                    "speed": 1
+                },
+                "opponentPlay": {
+                    "id": 1,
+                    "name": "Easter Blanda",
+                    "ability": 2,
+                    "force": 2,
+                    "speed": 10
+                },
+                "winnerPlay": "Sedrick Koepp"
+            },
+            {
+                "id": 42,
+                "playerPlay": {
+                    "id": 5,
+                    "name": "Sedrick Koepp",
+                    "ability": 9,
+                    "force": 10,
+                    "speed": 1
+                },
+                "opponentPlay": {
+                    "id": 2,
+                    "name": "Macey Dibbert",
+                    "ability": 3,
+                    "force": 1,
+                    "speed": 9
+                },
+                "winnerPlay": "Sedrick Koepp"
             }
-        },
-        "status": 200
+        ]
     }
+}
 ```
-
-## Consultar Farmacia proxima por coordenas ingresadas por get
-
-* GET / http://localhost:8000/api/farmacia/?latitud=70&longitud=98
-
-Resp
-```
-    {
-        "data": {
-            "exito": "Farmacia registrada mas proxima a 80 metros",
-            "farmacia": {
-                "id": 1,
-                "nombre": "Farmacia 1",
-                "direccion": "Mitre 750",
-                "latitud": "33.54600000",
-                "longitud": "25.69800000",
-                "created_at": "2021-12-28T12:47:50.000000Z",
-                "updated_at": "2021-12-28T12:47:50.000000Z"
-            }
-        },
-        "status": 200
-    }
-```
-
 
 
 ## Authors
