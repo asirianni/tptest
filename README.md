@@ -23,9 +23,8 @@ Se dispone de<br><br>
 [MatchResource](https://github.com/asirianni/tptest/blob/main/app/Http/Resources/MatchResource.php)<br>
 [PlayerResource](https://github.com/asirianni/tptest/blob/main/app/Http/Resources/PlayerResource.php)<br>
 [TournamentResource](https://github.com/asirianni/tptest/blob/main/app/Http/Resources/TournamentResource.php)<br><br>
-2 TestUnitarios (que validan 2 funcionalidades especificas)<br>
-[Haz clic aquí](https://www.ejemplo.com)<br>
-[Haz clic aquí](https://www.ejemplo.com)<br><br>
+1 TestUnitarios (que validan 2 funcionalidades especificas)<br>
+[TournamentTest](https://www.ejemplo.com)<br><br>
 
 
 
@@ -151,12 +150,12 @@ PHP 7.4.27 Development Server (http://127.0.0.1:8000) started
 
 ## Corriendo tests
 
-El servicio tiene 3 test unitarios realizados. FarmaciaTest realiza las pruebas sobre la clase Farmacia ubicada en app\Services
+El servicio tiene 2 test unitarios realizados. 
 
-### Tests\Feature\app\Services\FarmaciaTest
-#### dominio creacion exitosa
-#### dominio creacion no exitosa
-#### calculo distancia
+### Tests\Feature\app\Services\TournamentTest
+#### calculo de juego (calc play)
+#### jugar partido (play match)
+
 
 Ejecute el siguiente comando en consola y sobre la ruta del proyecto creado
 
@@ -165,10 +164,13 @@ php artisan test
 ```
 
 ```
-  PASS  Tests\Feature\app\Services\FarmaciaTest
-  ✓ dominio creacion exitosa
-  ✓ dominio creacion no exitosa
-  ✓ calculo distancia
+   PASS  Tests\Feature\app\Services\TournamentTest
+  ✓ calc play
+  ✓ play match
+
+  Tests:  2 passed
+  Time:   0.15s
+
 ```
 
 

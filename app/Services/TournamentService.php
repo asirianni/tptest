@@ -41,7 +41,6 @@ class TournamentService{
         //creo la logica para generar los partidos
         //ganador queda en cancha
         $win = null;
-        //dd("hola");
         for ($i = 0; $i < $this->phases; $i++) {
             $player1 = $players->random();
             if ($win !== null) {
