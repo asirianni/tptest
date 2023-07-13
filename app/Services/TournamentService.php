@@ -41,8 +41,8 @@ class TournamentService{
         //creo la logica para generar los partidos
         //ganador queda en cancha
         $win = null;
-
-        for ($i = 0; $i < $playerCount; $i++) {
+        //dd("hola");
+        for ($i = 0; $i < $this->phases; $i++) {
             $player1 = $players->random();
             if ($win !== null) {
                 $player1 = $win;
@@ -55,6 +55,8 @@ class TournamentService{
             $win = $match->persist();
 
         }
+        
+        return Tournament::with('matches', 'players')->findOrFail($tournaments->id);
         
     }
 

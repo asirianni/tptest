@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\TournamentRequest;
+use App\Http\Resources\TournamentResource;
 use App\Models\Tournament;
 use App\Models\Player;
 use App\Services\TournamentService;
@@ -21,11 +22,9 @@ class TournamentController extends Controller
     
     public function store(TournamentRequest $request)
     {
-        
         $validatedData = $request->all();
-        $service = new TournamentService($validatedData['partidos'],$validatedData['tipo']);
-
-        return $service->persist();
+        $tournament = new TournamentService($validatedData['partidos'],$validatedData['tipo']);
+        return new TournamentResource($tournament->persist());
 
     }
 

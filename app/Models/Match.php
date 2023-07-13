@@ -24,4 +24,24 @@ class Match extends Model
         'opponent_play_id',
         'winer_play_id',
     ];
+    public function tournament()
+    {
+        return $this->belongsTo(Tournament::class);
+    }
+
+    public function playerPlay()
+    {
+        return $this->belongsTo(Player::class, 'player_play_id');
+    }
+
+    public function opponentPlay()
+    {
+        return $this->belongsTo(Player::class, 'opponent_play_id');
+    }
+
+    public function winnerPlay()
+    {
+        return $this->belongsTo(Player::class, 'winer_play_id');
+    }
+
 }

@@ -29,9 +29,39 @@ class MatchService{
     }
 
     public function win(){
-        $win=$this->player;
-        //aca la comparacion
+        $win=0;
+        
+        //guardo los puntajes
+        $points_player_1=0;
+        $points_player_2=0;
+
+        ($this->playMatch($this->player->ability,$this->opponent->ability))?$points_player_1++:$points_player_2++;
+        
+        ($this->playMatch($this->player->speed,$this->opponent->speed))?$points_player_1++:$points_player_2++;
+        
+        //si es masculino se tiene en cuenta la fuerza
+        if($this->player->player_type_id===2){
+            ($this->playMatch($this->player->force,$this->opponent->force))?$points_player_1++:$points_player_2++;
+        }
+        
+        //agrego un elemento de azar en el juego
+        ( rand(0, 1) === 1) ? $points_player_1++ : $points_player_2++;
+
+        ($points_player_1 > $points_player_2) ? $win=$this->player : $win=$this->opponent;
+
         return $win;
+    }
+
+    // se juega con las metricas de cada jugador y si el jugador 1 
+    // resulta superior al 2
+    // se anota punto para el jugador 1 sino para el jugador 2
+    public function playMatch($metricPlayer1,$metricPlayer2){
+        $point=false;
+        
+        if($metricPlayer1>$metricPlayer2){
+            $point=true;
+        }
+        return $point;
     }
 
     
